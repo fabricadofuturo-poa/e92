@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask-wtf = "*"
+quart = {extras = ["dotenv"], version = "*"}
+uvicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+prod = "echo 'lol'"
+test = "python main.py"
+dev = "uvicorn main:app --reload"
