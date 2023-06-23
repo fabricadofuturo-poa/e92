@@ -35,6 +35,7 @@ try:
   from configparser import ConfigParser, NoSectionError
   from jinja2 import TemplateNotFound
   import os
+  import random
   import secrets
   import uvicorn
   from wtforms import (
@@ -528,6 +529,7 @@ async def correio() -> str:
     _return: dict[str, None | bool | str] = await get_mensagens()
     if _return["status"]:
       mensagens = _return["data"]
+      random.shuffle(mensagens)
     else:
       error = _return["error"]
       exception = _return["exception"]
