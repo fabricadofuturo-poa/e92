@@ -62,7 +62,7 @@ async def atualiza_correios(*args, **kwargs) -> None:
     pass
 
 async def gira_correios(*args, **kwargs) -> None:
-  """Gira carrosel"""
+  """Gira o carrosel"""
   try:
     global active_correios
     index: int = active_correios.index(True)
@@ -89,7 +89,7 @@ try:
     loop = asyncio.get_running_loop(),
   )
   atualiza_proxy: object = create_proxy(atualiza_correios)
-  atualiza_interval: int = js.setInterval(atualiza_proxy, int(1e4))
+  atualiza_interval: int = js.setInterval(atualiza_proxy, int(12e3))
   gira_proxy: object = create_proxy(gira_correios)
   gira_interval: int = js.setInterval(gira_proxy, int(6e3))
 except Exception as e:
