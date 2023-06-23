@@ -166,3 +166,4 @@ cython_debug/
 Pipfile.lock
 *.ini
 !example.config.ini
+static/imagens/

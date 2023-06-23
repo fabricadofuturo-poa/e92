@@ -4,8 +4,8 @@ Correio Elegante
 
 ## Instruções
 
-Renomear **example.config.ini** para config.ini e botar os valores 
-apropriados  
+Renomear **example.config.ini** para instance/config.ini e botar os 
+valores apropriados  
 
 ```
 pipenv install
