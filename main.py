@@ -656,6 +656,29 @@ async def editar_mensagens() -> str:
     logger.exception(e)
     return jsonify(repr(e))
 
+@app.route("/api/correios")
+# ~ @login_required
+async def api_correios() -> dict[str, str]:
+  """Retorna correios"""
+  response: dict[str, str | bool | None] = {
+    "status": False,
+    "data": None,
+    "error": "Não deu certo",
+    "exception": None,
+  }
+  try:
+    _return: dict[str, None | bool | str] = await get_correios()
+    if _return["status"]:
+      response["status"] = _return["status"]
+      response["data"] = _return["data"]
+    else:
+      response["error"] = _return["error"]
+      response["exception"] = _return["exception"]
+  except Exception as e:
+    logger.exception(e)
+    response["exception"] = repr(e)
+  return jsonify(response)
+
 @app.errorhandler(TemplateNotFound)
 @app.errorhandler(404)
 @app.route("/quedelhe")
